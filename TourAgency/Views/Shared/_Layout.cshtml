@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script asp-src-include="~/js/JavaScripts.js" asp-append-version="true"></script>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" asp-href-include="~/css/mystyle.css" asp-append-version="true" />
+</head>
+
+<body class="mainbody">
+    <header>
+        <div class="mainheader">
+            <H2><a asp-controller="Home" asp-action="Index" style="text-decoration:none"><img src="~/main.png" width=70 style="vertical-align:middle;padding-right:10px"> Туристическое агентство </a></H2>
+        </div>
+        <div class="loginheader">
+            <label>Пользователь системы: </label>
+            <label id="userlabel" style="font-weight: bold">@User.Identity.Name</label>
+        </div>
+        @if (@User.Identity.IsAuthenticated)
+        {
+        <ul class="menu">
+            <li><a asp-controller="AddTour" asp-action="AddTourInfo"><img src="~/addtour.jpg">Добавить тур</a></li>
+            <li><a asp-controller="SearchTours" asp-action="SearchParams"><img src="~/findtour.jpg">Поиск тура</a></li>
+            <li><a asp-controller="Sales" asp-action="Sales"><img src="~/buys.jpg">Продажи</a></li>
+            <li><a asp-controller="Hotel" asp-action="ChooseCountry"><img src="~/hotel.jpg">Отели</a></li>
+            <li><a asp-controller="Manager" asp-action="ManagersAll"><img src="~/agent.jpg">Менеджеры</a></li>
+            <li><a asp-controller="Client" asp-action="ClientsAll"><img src="~/client.jpg">Клиенты</a></li>
+            <li><a asp-controller="Statistic" asp-action="Statistic"><img src="~/stat.jpg" width=33>Статистика</a></li>
+            <li><a asp-controller="Options" asp-action="Options"><img src="~/options.png">Настройки</a></li>
+            <li><a asp-controller="Account" asp-action="Logout"><img src="~/exit.png">Выход</a></li>
+        </ul>
+        }
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @section scripts{
+
+        <environment names="Development">
+            <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+            <script src="/lib/jquery/dist/jquery.min.js"></script>
+        </environment>
+        <environment names="Staging,Production">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                    asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.validator">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                    asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+            </script>
+            <script src="/lib/jquery/dist/jquery.min.js"></script>
+        </environment>
+    }
+        <footer class="border-top footer text-muted">
+            <div class="myfooter">
+                &copy; Pankratov A.A. 5-80k <a asp-area="" asp-controller="Home" asp-action="Index">Главная страница</a>
+            </div>
+        </footer>
+    </body>
+</html>

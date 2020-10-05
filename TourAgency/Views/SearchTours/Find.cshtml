@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FindTourModelView> 
+@{
+    ViewBag.Title = "Найденные туры";
+}
+<form>
+    <div style="display:none">
+        <input type="text" name="TourID" id="TourID" />
+        <input type="text" name="CountryID" id="CountryID" />
+    </div>
+    <div align=center>
+        <table class="datagrid">
+            <colgroup>
+                <col style='width: 7%'>
+                <col style='width: 8%'>
+                <col style='width: 14%'>
+                <col style='width: 8%'>
+                <col style='width: 5%'>
+                <col style='width: 10%'>
+                <col style='width: 8%'>
+                <col style='width: 8%'>
+                <col style='width: 9%'>
+                <col style='width: 7%'>
+                <col style='width: 10%'>
+            </colgroup>
+
+            <caption>@ViewBag.Title</caption>
+            <tr>
+               <th style='display:none'>tour_id</th><th style='display:none'>country_id</th><th>Страна</th><th>Город</th><th>Отель</th><th>Дата заезда</th><th>Ночей</th><th>Питание</th><th>Звездность</th><th>Стоимость</th><th>Туроператор</th><th>Доступно</th><th>Купить тур</th>
+            </tr>
+            @foreach(var item in @Model)
+            {
+            <tr>
+               <td style='display:none'>@item.TourID</td>
+               <td style='display:none'>@item.CountryID</td>
+               <td>@item.Country</td>
+               <td>@item.City</td>
+               <td>@item.Hotel</td>
+               <td>@item.DateIn</td>
+               <td>@item.Days</td>
+               <td>@item.Food</td>
+               <td>@item.Stars</td>
+               <td>@item.Cost</td>
+               <td>@item.TourOper</td>
+               <td>@item.Avaliable</td>
+               <td><button formaction='BuyTour' formmethod='get' type='submit' name=@item.Index onclick='BuyTourButton(event)'><img src='~/buy.jpg'>Купить</button></td>
+            </tr>
+            }
+        </table>
+    </div>
+</form>

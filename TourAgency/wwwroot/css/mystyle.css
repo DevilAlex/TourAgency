@@ -1,0 +1,188 @@
+﻿textarea {
+      line-height: 150%;
+      text-indent: 35px;
+}
+P {
+      text-align: justify
+}
+H2 {
+      font-size: 20pt;
+      font-style: italic;
+      padding-left: 10px;
+      padding-right: 15px;
+}
+body.mainbody {
+      background: lightgray;
+      font-family: 'Arial Cyr', 'Helvetica Cyr';
+      font-style: normal;
+      font-size: 10pt;
+}
+body.defaultbody {
+      background: lightgray;
+      font-family: 'Arial Cyr', 'Helvetica Cyr';
+      font-style: normal;
+}
+div.mainheader {
+      display: inline-block;
+      border: 2px solid silver;
+      border-radius: 30px;
+      margin-bottom: 10px;
+      background: #ffffff;
+      text-align: center;
+      position: relative;
+      left: 25%;
+}
+input.error {
+    border: 2px solid red;
+}
+div.loginheader {
+      display: inline-block;
+      border: 2px solid silver;
+      border-radius: 30px;
+      margin-bottom: 10px;
+      background: LavenderBlush;
+      text-align: center;
+      float: right; 
+      margin-top:15px;
+      padding: 10px;
+      font-size: 12pt
+}
+ul.menu li { 
+     display: inline;
+ }
+ul.menu a, td a {
+      display: inline-block;
+      padding: 5px 10px 5px 5px;
+      margin: 2px;
+      border-radius: 10px;
+      background: Snow;
+      text-align: center;
+      border-style: outset;
+      border-width: 3px;
+      border-color: gray;
+      color: black;
+      font-size: 10pt;
+      font-weight: bold;
+      text-decoration: none;
+ }
+ul.menu a:hover, td a:hover {
+      background-color: PaleTurquoise;
+ }
+ul.menu img, td a img {
+      width: 30px;
+      vertical-align: middle;
+      padding-right:10px
+}
+button {
+      padding: 4px 7px 3px 7px;
+      margin: 5px;
+      font-size: 10pt;
+}
+button img {
+      width: 20px;
+      vertical-align: middle;
+      padding-right: 7px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+}
+table caption {
+   margin:  1px 1px 15px 1px;
+   font-size: 15pt;
+   font-weight: bold;
+}
+table select {
+   font-size: 11pt;
+   text-align: left;
+}
+table input {
+   font-size: 11pt;
+}
+table.datagrid {
+    border: 2px solid black;
+    border-collapse: collapse;
+    background: azure;
+    width: 94%;
+    margin: 0 0 0 10px; 
+}
+table.datagrid td {
+    border: 1px solid black;  
+    padding: 3px 10px 3px 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10pt;
+}
+table.datagrid th {
+    border: 1px solid black;  
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 11pt;
+    font-weight: bold;
+    background: NavajoWhite;
+}
+table.menupage {
+    margin-top: 30px;
+    border: 3px solid gray;
+    border-radius: 20px;
+    background: AntiqueWhite;
+    border-spacing: 15px 20px;
+    padding: 10px 20px 0px 20px;
+}
+table.menupage td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12pt;
+}
+table.minitable {
+    margin-top: 30px;
+    font-size: 12pt;
+    border: 3px solid gray;
+    border-radius: 20px;
+    border-spacing: 15px 20px;
+    background: PaleGoldenrod;
+    padding: 0px 20px 0px 20px;
+}
+table.minitable td {
+    text-align: center;
+}
+table.minitable th {
+    font-size: 15pt;
+    padding-bottom: 10px;
+}
+table.hotelpage {
+    margin-top: 20px;
+    border-spacing: 10px 15px;
+    font-size: 12pt;
+}
+table.salespage td, table.salespage select {
+    text-align: center;
+    font-size: 11pt;
+    margin: 5px 10px 10px 20px;
+}
+.field-validation-error {
+    color: red;
+}
+.field-validation-valid {
+    display: none;
+}
+.input-validation-error {
+    border: 1px solid red;
+}
+.validation-summary-errors {
+    color: red;
+    font-size: 12pt;
+    text-align: center;
+    font-weight: bold;
+}
+div.myfooter {
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 2px solid silver;
+    border-radius: 30px;
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+    float: right;
+}

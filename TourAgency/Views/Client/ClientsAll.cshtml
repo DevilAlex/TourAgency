@@ -1,0 +1,54 @@
+﻿@model  IEnumerable<TourAgency.Models.Client>
+@{
+    ViewBag.Title = "Клиенты компании";
+}
+    <table class="datagrid" style="width:95%">
+        <colgroup>
+            <col style='width: 10%'>
+            <col style='width: 10%'>
+            <col style='width: 11%'>
+            <col style='width: 11%'>
+            <col style='width: 11%'>
+            <col style='width: 17%'>
+            <col style='width: 10%'>
+            <col style='width: 12%'>
+            <col style='width: 8%'>
+        </colgroup>
+        <caption>@ViewBag.Title</caption>
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Российский паспорт</th>
+            <th>Загран. паспорт</th>
+            <th>Дата рождения</th>
+            <th>Место работы</th>
+            <th>Логин менеджера</th>
+            <th>Дата редактирования</th>
+            <th>Отметить</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.ClientSurname</td>
+        <td>@item.ClientName</td>
+        <td>@item.RusPassport</td>
+        <td>@item.Passport</td>
+        <td>@item.Birthday.ToShortDateString()</td>
+        <td>@item.WorkPlace</td>
+        <td>@item.ManagerLogin</td>
+        <td>@item.EditDate</td>
+        <td><input type='checkbox' class='check' onclick='CheckClient(event)' name="@item.ClientID"></td>
+    </tr>
+        }
+    </table>
+    <form>
+        <input type="hidden" name="cliID" id="cliID" />
+        <div>
+            <p style="text-align:center">
+                <label style='font-weight: bold;'>Общее количество клиентов: @Model.Count()</label>
+                <button type="submit" formaction="ClientAdd" value='Добавить'><img src="~/add_button.png">Добавить</button>
+                <button type="submit" formaction="ClientEdit" value='Редактировать'><img src="~/edit_button.jpg">Редактировать</button>
+                <button type="submit" formaction="ClientDel" value='Удалить'><img src="~/del_button.png">Удалить</button>
+            </p>
+        </div>
+    </form>

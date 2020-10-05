@@ -1,0 +1,59 @@
+﻿@model TourAgency.Models.AddTourViewModel
+@{
+    ViewBag.Title = "Добавить новый тур";
+}
+<div align=center>
+    <form>
+        <input type="hidden" name="Index" id="Index" />
+        <Table class="menupage">
+            <colgroup>
+                <col style="width: 45%">
+                <col style="width: 55%">
+            </colgroup>
+            <caption>@ViewBag.Title</caption>
+            <tr>
+                <td style="text-align: right;"><label asp-for="Data"></label>
+                <td style="text-align: left;"><input type="date" asp-for="Data" />
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label asp-for="Days"></label>
+                <td style="text-align: left"><input type="number" asp-for="Days" style="width:45px;" step="1" min="6" max="15" value="10" />
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label asp-for="Country"></label>
+                <td style="text-align: left">
+                    <select asp-for="Country" asp-items="ViewBag.Countries" onchange="CountryIndex()"></select>
+                    <button  type="submit" formaction='AddTourInfo' formmethod="post" style="margin-left: 15px;" value="OK" name="submit">Выбрать</button>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label asp-for="Hotel"></label>
+                <td style="text-align: left">
+                    <select asp-for="Hotel" asp-items="ViewBag.HotelNames"></select>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label asp-for="TourOperator"></label>
+                <td style="text-align: left">
+                    <select asp-for="TourOperator" asp-items="ViewBag.Touropers"></select>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label asp-for="Transport"></label>
+                <td style="text-align: left">
+                    <select asp-for="Transport" asp-items="ViewBag.Transport"></select>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right"><label asp-for="Avaliable"></label>
+                <td style="text-align: left"><input type="number" asp-for="Avaliable" style="width:40px;" step="1" min="1" max="6" value="3" />
+            </tr>
+            <tr>
+                <td colspan=2>
+                    <button formaction='AddTour' formmethod='post' type="submit" value="Применить" name="submit"><img src='~/applybutton.png'>Добавить</button>
+                    <button type="reset" value="Сброс"><img src='~/cancelbutton.jpg'>Сброс</button>
+                </td>
+            </tr>
+        </Table>
+    </form>
+</div>

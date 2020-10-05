@@ -1,0 +1,38 @@
+﻿@model TourAgency.Models.LoginViewModel
+@{
+    ViewBag.Title = "Аутентификация";
+}
+    <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" onreset="OnReset()">
+        <div align=center>
+            <div class="auth">
+                <table class="minitable">
+                    <tr><th colspan=2>@ViewBag.Title</th></tr>
+                    <tr>
+                        <td style="text-align:right"><label asp-for="Login"></label>
+                        <td style="text-align:left">
+                            <div>
+                                <input type="text" asp-for="Login" onfocus="HideError()" />
+                                <span asp-validation-for="Login"></span>
+                            </div>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right"><label asp-for="Password"></label>
+                        <td style="text-align:left">
+                            <div>
+                                <input asp-for="Password" onfocus="HideError()" />
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                    </tr>
+                    <tr>
+                        <td colspan=3 align=center>
+                            <div class="validation" asp-validation-summary="ModelOnly"></div>
+                    </tr>
+                    <tr>
+                        <td colspan=3 align=center>
+                            <button type="submit" value="Войти" style="margin-right:5px"><img src='~/applybutton.png' width=20 style='vertical-align:middle;padding-right:7px; padding-top:2px; padding-bottom:2px'>Войти</button>
+                            <button type="reset" value="Сброс" style="margin-left:5px"><img src='~/cancelbutton.jpg' width=20 style='vertical-align:middle;padding-right:7px; padding-top:2px; padding-bottom:2px'>Сброс</button>
+                    </tr>
+                </table>
+            </div>
+            </div>
+    </form>

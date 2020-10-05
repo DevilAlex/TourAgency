@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SalesViewModel>
+@{
+    ViewBag.Title = "Продажи турпутевок";
+}
+<div align="center">
+<H2 style="text-align:center">@ViewBag.Title</H2>
+<table class="salespage">
+    <tr>
+        <td>Имя клиента
+        <td>Имя агента
+        <td>Дни
+        <td>Страна
+        <td>Туроператор
+        <td rowspan=2><button onclick="ResetFilters()"><img src='~/resetbutton.jpg'>Сброс</button>
+    </tr>
+    <tr>
+        <td><select id="client" name='0' asp-items="@ViewBag.Clients" onchange="ChangeSelect(event)"></select>
+        <td><select id="manager" name='1' asp-items="@ViewBag.Managers" onchange="ChangeSelect(event)"></select>
+        <td><select id="days" name='2' asp-items="@ViewBag.Days" onchange="ChangeSelect(event)"></select>
+        <td><select id="country" name='3' asp-items="@ViewBag.Countries" onchange="ChangeSelect(event)"></select>
+        <td><select id="touroper" name='4' asp-items="@ViewBag.TourOpers" onchange="ChangeSelect(event)"></select>
+    </tr>
+</table>
+<table class="datagrid">
+    <colgroup>
+        <col style='width: 11%'>
+        <col style='width: 11%'>
+        <col style='width: 4%'>
+        <col style='width: 7%'>
+        <col style='width: 9%'>
+        <col style='width: 9%'>
+        <col style='width: 8%'>
+        <col style='width: 8%'>
+        <col style='width: 8%'>
+        <col style='width: 15%'>
+        <col style='width: 10%'>
+    </colgroup>
+    <tr>
+        <th>ФИО клиента</th>
+        <th>ФИО менеджера</th>
+        <th>Дни</th>
+        <th>Страна</th>
+        <th>Туроператор</th>
+        <th>Дата заключения</th>
+        <th>Стоимость</th>
+        <th>Номер договора</th>
+        <th>Город</th>
+        <th>Отель</th>
+        <th>Дата отправления</th>
+        @foreach(var item in Model)
+        {
+        <tr id="@item.Index">
+            <td>@item.ClientName</td>
+            <td>@item.ManagerName</td>
+            <td>@item.Days</td>
+            <td>@item.Country</td>
+            <td>@item.TourOper</td>
+            <td>@item.DateIn.ToShortDateString()</td>
+            <td>@item.Cost</td>
+            <td>@item.AgrNumber</td>
+            <td>@item.City</td>
+            <td>@item.Hotel</td>
+            <td>@item.DateOut.ToShortDateString()</td>
+        </tr>
+        }
+        </table>
+    </div>
+    <p style="text-align:center"><label style='font-weight: bold;'>Общее количество проданных туров: @Model.Count()</label>
+

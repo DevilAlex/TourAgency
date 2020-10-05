@@ -1,0 +1,72 @@
+﻿@model TourAgency.Models.HotelViewModel
+@{ 
+    ViewBag.Source = "/hotels/" + @Model.HotelName + ".jpg";
+}
+<div align=center>
+  <form asp-action="HotelInfo" asp-controller="Hotel" method="post">
+      <div style="display:none">
+          <input type="number" name="Index" id="Index" value="@ViewBag.Index" />
+          <input type="text" asp-for="CountryName"/>
+      </div>
+    <table id="output" class="hotelpage">
+        <colgroup>
+            <col style='width: 50%'>
+            <col style='width: 20%'>
+            <col style='width: 30%'>
+        </colgroup>
+        <caption>@ViewBag.Title</caption>
+        <tr>
+            <td rowspan=8><img id="pic" src = "@ViewBag.Source" align=middle width=530 height=350>
+            <td><label asp-for="CityName"></label>
+            <td><input type="text" asp-for="CityName" style="width:120px" readonly />
+        </tr>
+        <tr>
+            <td><label asp-for="HotelName"></label>
+            <td><input type="text" asp-for="HotelName" style="width:280px" readonly />
+            <td>
+        </tr>
+        <tr>
+            <td><label asp-for="BuildYear"></label>
+            <td><input type="text" asp-for="BuildYear" style="width:70px" readonly />
+            <td>
+        </tr>
+        <tr>
+            <td><label asp-for="Stars"></label>
+            <td><input type="text" asp-for="Stars" style="width:40px" readonly />
+            <td>
+        </tr>
+        <tr>
+            <td><label asp-for="HotelSquare"></label>
+            <td><input asp-for="HotelSquare" asp-format="{0} кв.км." style="width:150px" readonly />
+            <td>
+        </tr>
+        <tr>
+            <td><label asp-for="RoomCost"></label>
+            <td><input asp-for="RoomCost" asp-format="{0:F0} руб.в сутки" style="width:150px" readonly />
+            <td>
+        </tr>
+        <tr>
+            <td><label asp-for="FoodType"></label>
+            <td><input type="text" asp-for="FoodType" style="width:130px" readonly />
+            <td>
+        </tr>
+        <tr>
+            <td><label asp-for="RestType"></label>
+            <td><input type="text" asp-for="RestType" style="width:140px" readonly />
+            <td>
+        </tr>
+        <tr>
+            <td style="text-align:center; font-weight:bold;"><label asp-for="Description"></label>
+        </tr>
+        <tr>
+            <td style="border:1px solid black" colspan=3><textarea asp-for="Description" cols=150 rows=8 readonly></textarea>
+        </tr>
+        <tr>
+            <td colspan=3 align=center>
+                <button type="submit" name="submitButton" value="prev"><img src='~/prev.png'>Предыдущий</button>
+                <button type="submit" name="submitButton" value="next"><img src='~/next.png'>Следующий</button>
+            </td>
+        </tr>
+    </table>
+  </form>
+</div>

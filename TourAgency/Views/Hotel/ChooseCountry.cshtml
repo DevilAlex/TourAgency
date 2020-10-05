@@ -1,0 +1,25 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Выберите страну";
+}
+    <form asp-action="HotelInfo" asp-controller="Hotel" method="get">
+        <div style="display:none">
+            <input type="text" name="ChoosenCountry" id="ChoosenCountry" />
+        </div>
+        <div align=center>
+            <table class="minitable" style="width:300px">
+                <th>@ViewBag.Title</th>
+                <tr>
+                    <td>
+                        <ul style="list-style-type:none; text-align:left;">
+                            @foreach(string str in Model)
+                            {
+                            <li style="padding:5px"><input type="radio" name="CountryRadio" onclick="ChooseCountry(event)" value="@str" />@str</li>
+                            }
+                        </ul>
+                        <button type="submit" value='Применить'><img src="~/applybutton.png">Применить</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>

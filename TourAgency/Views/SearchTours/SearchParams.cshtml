@@ -1,0 +1,74 @@
+﻿@model SearchParamsViewModel
+@{ 
+    ViewBag.Title = "Параметры поиска";
+}
+<div align=center>
+    <form  asp-action="SearchTours" asp-controller="SearchTours" method=post>
+        <input type="hidden" name="Index" id="Index"/>
+        <Table class="menupage">
+            <colgroup>
+                <col style="width: 30%">
+                <col style="width: 10%">
+                <col style="width: 20%">
+                <col style="width: 10%">
+                <col style="width: 30%">
+            </colgroup>
+            <caption>@ViewBag.Title</caption>
+            <tr>
+                <td style="text-align: right;">Дата отправления: </td>
+                <td><label asp-for="DateFrom"></label></td>
+                <td><input type="date" asp-for="DateFrom"/></td>
+                <td><label asp-for="DateTo"></label></td>
+                <td><input type="date" asp-for="DateTo"/></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Количество дней: </td>
+                <td><label asp-for="DaysFrom"></label></td>
+                <td><input type="number" asp-for="DaysFrom" style="width:40px" step="1" min="6" max="15"/></td>
+                <td><label asp-for="DaysTo"></label></td>
+                <td><input type="number" asp-for="DaysTo" style="width:40px" step="1" min="6" max="15"/></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Стоимость в сутки:</td>
+                <td><label asp-for="CostFrom"></label></td>
+                <td><input type="number" asp-for="CostFrom" style="width:70px" step="100" min="1000" max="3200"/></td>
+                <td><label asp-for="CostTo"></label></td>
+                <td><input type="number" asp-for="CostTo" style="width:70px" step="100" min="1000" max="3200"/></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"><label asp-for="Country"></label></td>
+                <td style="text-align: left"><select asp-for="Country" asp-items="ViewBag.Countries" onchange="CountryIndex()"></select>
+                <td><button type="submit" formaction="SearchParams" value="Выбрать"><img src='~/applybutton.png'>Выбрать</button></td>
+            </tr>
+            <tr>
+                <td colspan=2 style="text-align: left; vertical-align: top; padding-left:60px;">
+                    <ul style="list-style-type:none;">
+                        <B style="margin: 20px;"><label asp-for="City"></label></B>
+                        @foreach (string c in @Model.City)
+                        { <li><input type="checkbox" checked name = "City" value="@c" /> @c</li> }
+                    </ul>
+                </td>
+                <td style="text-align: left; vertical-align: top;">
+                    <ul style="list-style-type:none;">
+                        <B style="margin: -20px;"><label asp-for = "Food"></label></B>
+                        @foreach (string f in Model.Food)
+                        { <li><input type="checkbox" checked name = "Food" value="@f" /> @f</li> }
+                    </ul>
+                </td>
+                <td colspan=2 style="text-align: left; vertical-align: top; padding-left:80px">
+                    <ul style="list-style-type:none;">
+                        <B style="margin: -30px;"><label asp-for = "Star"></label></B>
+                        @foreach (int s in @Model.Star)
+                        { <li><input type="checkbox" checked name = "Star" value="@s" /> @s</li> }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=5>
+                    <button type="submit" formaction="Find" value="Поиск"><img src='~/findbutton.jpg'>Найти</button>
+                    <button type="reset" value="Сброс" style="margin:5px"><img src='~/cancelbutton.jpg'>Сброс</button>
+                </td>
+            </tr>
+        </Table>
+    </form>
+</div>

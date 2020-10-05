@@ -1,0 +1,71 @@
+﻿@model TourAgency.Models.Client
+@{
+    ViewBag.Title = "Редактирование клиента";
+ }
+    <div align=center>
+        <form asp-action="ClientEdit" asp-controller="Client" method="post" onreset="return OnReset()">
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
+            <div style="display:none">
+                <input type="number" asp-for="ClientID" />
+            </div>
+            <table class="minitable">
+                <tr>
+                    <th colspan=2>@ViewBag.Title</th>
+                </tr>
+                <tr>
+                    <td colspan="2"><div class="validation" asp-validation-summary="ModelOnly"></div>
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="ClientName"></label>
+                    <td style="text-align:left">
+                        <div>
+                            <input type="text" asp-for="ClientName" style="width: 200px" onfocus="HideError()" />
+                            <span asp-validation-for="ClientName"></span>
+                        </div>
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="ClientSurname"></label>
+                    <td style="text-align:left">
+                        <div>
+                            <input type="text" asp-for="ClientSurname" style="width: 200px" onfocus="HideError()" />
+                            <span asp-validation-for="ClientSurname"></span>
+                        </div>
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="RusPassport"></label>
+                    <td style="text-align:left">
+                        <div>
+                            <input type="text" asp-for="RusPassport" style="width: 200px" onfocus="HideError()" />
+                            <span asp-validation-for="RusPassport"></span>
+                        </div>
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="Birthday"></label>
+                    <td style="text-align:left"><input type="date" asp-for="Birthday" />
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="Passport"></label>
+                    <td style="text-align:left">
+                        <div>
+                            <input type="text" asp-for="Passport" style="width: 200px" onfocus="HideError()" />
+                            <span asp-validation-for="Passport"></span>
+                        </div>
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="WorkPlace"></label>
+                    <td style="text-align:left">
+                        <div>
+                            <input type="text" asp-for="WorkPlace" style="width: 200px" onfocus="HideError()" />
+                            <span asp-validation-for="WorkPlace"></span>
+                        </div>
+                </tr>
+                <tr>
+                    <td colspan=2>
+                        <button type="submit" value='Применить'><img src="~/applybutton.png">Применить</button>
+                        <button type="reset" value="Сброс" style="margin:5px"><img src='~/cancelbutton.jpg'>Сброс</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+

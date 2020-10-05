@@ -1,0 +1,39 @@
+﻿@model BuyTourViewModel 
+@{
+    ViewBag.Title = "Введите информацию о покупателе";
+}
+    <div align=center>
+        <form>
+            
+            <div style="display:none">
+                <input type="text" asp-for="TourID" />
+                <input type="text" asp-for="CountryID" />
+            </div>
+            <table class="minitable">
+                <tr>
+                    <th colspan=2>@ViewBag.Title</th>
+                </tr>
+                <tr>
+                    <td colspan="2"><div class="validation" asp-validation-summary="ModelOnly"></div>
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="Name"></label>
+                    <td style="text-align:left"> <input type="text" asp-for="Name" style="width: 200px" />
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="Surname"></label>
+                    <td style="text-align:left"> <input type="text" asp-for="Surname" style="width: 200px" />
+                </tr>
+                <tr>
+                    <td style="text-align:right"><label asp-for="Birthday"></label>
+                    <td style="text-align:left"> <input type="date" value="2019.01.01" asp-for="Birthday" />
+                </tr>
+                <tr>
+                    <td colspan=2>
+                        <button formaction='BuyTour' formmethod='post' type="submit" value="Применить"><img src='~/applybutton.png'>Купить</button>
+                        <button type="reset" value="Отмена"><img src='~/cancelbutton.jpg'>Отмена</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>

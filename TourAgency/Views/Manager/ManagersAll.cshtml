@@ -1,0 +1,40 @@
+﻿@model  IEnumerable<TourAgency.Models.ManagerViewModel>
+@{
+    ViewBag.Title = "Менеджеры компании";
+}
+    <table class="datagrid" style="width:95%">
+        <colgroup>
+            <col style='width: 18%'>
+            <col style='width: 18%'>
+            <col style='width: 12%'>
+            <col style='width: 18%'>
+            <col style='width: 17%'>
+            <col style='width: 17%'>
+        </colgroup>
+        <caption align="center">@ViewBag.Title</caption>
+        <tr><th>Фамилия</th><th>Имя</th><th>Размер премии, %</th><th>Страна</th><th>Проданных туров</th><th>Сумма сделок, руб.</th><th>Отметить</th></tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.LastName</td>
+        <td>@item.FirstName</td>
+        <td>@item.Prime</td>
+        <td>@item.CountryName</td>
+        <td>@item.CountTours</td>
+        <td>@item.SumCost </td>
+        <td><input type='checkbox' class='check' onclick='CheckManager(event)' name="@item.ManagerID"></td>
+    </tr>
+        }
+    </table>
+    <form>
+        <div class="validation" asp-validation-summary="ModelOnly" />
+        <input type="hidden" name="manID" id="manID" />
+        <div>
+            <p style="text-align:center">
+                <label style='font-weight: bold;'>Общее количество менеджеров: @Model.Count()</label>
+                <button type="submit" formaction="ManagerAdd" value='Добавить'><img src="~/add_button.png">Добавить</button>
+                <button type="submit" formaction="ManagerEdit" value='Редактировать'><img src="~/edit_button.jpg">Редактировать</button>
+                <button type="submit" formaction="ManagerDel" value='Удалить'><img src="~/del_button.png">Удалить</button>
+            </p>
+        </div>
+    </form>
